@@ -61,6 +61,16 @@ angular.module('starter.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
+
+  $scope.signOut = function() {
+    $auth.signOut()
+      .then(function(resp) {
+        $scope.currentUser = null;
+      })
+      .catch(function(resp) {
+        console.log("Something went wrong when signin you out");
+      })
+  };
 })
 
 .controller('TestController', function($scope) {
@@ -158,4 +168,17 @@ angular.module('starter.controllers', [])
     });
     return count;
   }
-});
+})
+
+.controller('IndexCtrl', function($scope, $auth) {
+    $scope.handleSignOutBtnClick = function() {
+      $auth.signOut()
+        .then(function(resp) {
+          debugger;
+          $scope.currentUser = null;
+        })
+        .catch(function(resp) {
+          console.log("Something went wrong when signin you out");
+        })
+    };
+  });

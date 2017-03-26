@@ -1,1 +1,16 @@
 /* Empty. Add your own CSS if you like */
+.bar-slide {
+  background-color: #D23330;
+  te
+}
+
+h1 {
+  color: #fff;
+}
+
+.scroll-content {
+  background-image:url("../img/run.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}

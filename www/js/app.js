@@ -50,6 +50,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     })
 
+    .state('.signup',{
+      url: '/signup',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/signup.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
+
     .state('app.data', {
       url: '/data',
       params: {

@@ -14,6 +14,37 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
+  $scope.registrationForm = {};
+
+  // Create the login modal that we will use later
+  $ionicModal.fromTemplateUrl('templates/signup.html', {
+    scope: $scope
+  }).then(function(signup) {
+    $scope.signup = signup;
+  });
+
+  // Triggered in the login modal to close it
+  $scope.closeSignup = function() {
+    $scope.signup.hide();
+  };
+
+  // Open the login modal
+  $scope.signUp = function() {
+    $scope.signup.show();
+  };
+
+
+  $scope.handleRegButtonClick = function() {
+    $auth.submitRegistration($scope.registrationForm)
+      .then(function(resp) {
+        $scope.signup.hide();
+        // handle success response
+      })
+      .catch(function(resp) {
+        // handle error response
+      });
+  };
+
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -33,6 +64,10 @@ angular.module('starter.controllers', [])
   $scope.login = function() {
     $scope.modal.show();
   };
+
+
+
+
 
   // Perform the login action when the user submits the login form
   $scope.doLogin = function () {
